@@ -1,0 +1,249 @@
+<!-- Code of seaarchbox -->
+    <div class="search">
+        
+        <div class="text">
+            Happy Place to Earn a Profit
+        </div>
+        <form class="example-form">
+            
+            <input type="text"
+                    #box
+                placeholder="{{UserName}}   Search for a Stock"
+                [formControl]="myControl"
+                [matAutocomplete]="auto"
+                class="example-input">
+            <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option" >
+                {{option}}
+            </mat-option>
+            </mat-autocomplete>
+            <button class="add" type="submit" (click)="add_func(box.value)">Add</button>
+            <!-- <button class="search_butt" type="submit" (click)="openstockfun()" (click)="getvalue(box.value)">Search</button> -->
+        </form>     
+    </div>
+
+<!-- Code of multiple symbol -->
+
+<div class="multiple_symbol">
+        
+    <div class="each_symbol" *ngFor="let x of multiple_sym;let i = index">
+        <mat-expansion-panel [expanded]="expandedPanels[i]" (opened)="togglePanel(i)" (opened)="getvalue(x)" (closed)="destroyapi()">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{x}}
+              </mat-panel-title>
+              <mat-panel-description>
+                Click to expand
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="stock">
+                <table>
+                    <thead>
+                        <tr class="table-heading">
+                            <th colspan="4" >{{name}}</th>
+                            <hr>    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="bold">Open</td>
+                            <td>{{open}}</td>
+                            <td class="bold">Day_high</td>
+                            <td>{{day_high}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Previous Close</td>
+                            <td>{{previous_close_price}}</td>
+                            <td class="bold">Day_low</td>
+                            <td>{{day_low}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">52_week_high</td>
+                            <td>{{_week_high}}</td>
+                            <td class="bold">52_week_low</td>
+                            <td>{{_week_low}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">LTP</td>
+                            <td>{{price}}</td>
+                            <td class="bold">LTT</td>
+                            <td>{{last_trade_time}}</td>
+                        </tr>
+                        <tr>
+                            <td><mat-chip class="sky-blue-chip" (click)="openNewComponent()">Market Depth</mat-chip></td>
+                            <td><mat-chip class="sky-blue-chip" (click)="openscalper()">Market Scalper</mat-chip></td>
+                            <td><mat-chip class="sky-blue-chip" (click)="deletefunc()">DELETE</mat-chip></td>
+                                                        
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </mat-expansion-panel > 
+    </div>
+</div>
+
+
+<!-- Code of OHLC -->
+
+<div class="stock" *ngIf="openstock">
+    <table>
+        <thead>
+            <tr class="table-heading">
+                <th colspan="4" >{{name}}</th>
+                <hr>    
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="bold">Open</td>
+                <td>{{open}}</td>
+                <td class="bold">Day_high</td>
+                <td>{{day_high}}</td>
+            </tr>
+            <tr>
+                <td class="bold">Previous Close</td>
+                <td>{{previous_close_price}}</td>
+                <td class="bold">Day_low</td>
+                <td>{{day_low}}</td>
+            </tr>
+            <tr>
+                <td class="bold">52_week_high</td>
+                <td>{{_week_high}}</td>
+                <td class="bold">52_week_low</td>
+                <td>{{_week_low}}</td>
+            </tr>
+            <tr>
+                <td class="bold">LTP</td>
+                <td>{{price}}</td>
+                <td class="bold">LTT</td>
+                <td>{{last_trade_time}}</td>
+            </tr>
+            <tr>
+                <button (click)="openNewComponent()">Market Depth</button>
+                <button (click)="openscalper()">Market Scalper</button>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<!-- Code of Market Depth -->
+
+<div class="temp" *ngIf="showMarketDepth">
+    <div class="example-box" cdkDrag>
+        <div class="market_depth">
+            <table>
+                <thead>
+                    <tr class="table-heading">
+                        <th colspan="5" >{{name}}</th>
+                        <button mat-icon-button color="warn" (click)="closenewcomponent()">
+                            <mat-icon fontSize="small">close</mat-icon>
+                        </button>
+                        <hr>    
+                    </tr>
+                    <tr>
+                        <th>MktVol</th>
+                        <th>MyVol</th>
+                        <th>Bid</th>
+                        <th>Ask</th>
+                        <th>MyVol</th>
+                        <th>MktVol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="green">{{65+value}}</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.10 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.10 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">{{29+value}}</td>
+                    </tr>
+                    <tr>
+                        <td class="green">{{39+value}}</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.15 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.15 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">{{45+value}}</td>
+                    </tr>
+                    <tr>
+                        <td class="green">{{55+value}}</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.20 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.20 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">{{21+value}}</td>
+                    </tr>
+                    <tr>
+                        <td class="green">{{38+value}}</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.30 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.30 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">{{98+value}}</td>
+                    </tr>
+                    <tr>
+                        <td class="green">{{3+value}}</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.35 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.35 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">{{14+value}}</td>
+                    </tr>
+                    <tr>
+                        <td class="green">{{24+value}}</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.40 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.40 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">{{34+value}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+</div>
+
+<!-- Code of market Scalper -->
+
+<div class="scalper" *ngIf="showscalper">
+    <div class="example-box" cdkDrag>
+        <div class="table-container">
+            <table>
+            <thead>
+                <tr>
+                <th>MyVol</th>
+                <th>Bid</th>
+                <th>Price</th>
+                <th>Ask</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of d">
+                    <td></td>
+                    <td></td>
+                    <td>{{this.ltp + row| number:'1.2-2' }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="highlight">{{this.ltp | number:'1.2-2'}}/{{29+value}}</td>
+                    <td></td>
+                </tr>
+                <tr *ngFor="let row of d.reverse()">
+                    <td></td>
+                    <td></td>
+                    <td>{{this.ltp - row | number:'1.2-2'}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <button (click)="closescalper()">Close</button>
+            </table>
+        </div>
+    </div>
+</div>

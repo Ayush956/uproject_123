@@ -1,0 +1,19 @@
+<div class="signup">
+    <div class="example-box">
+        <div class="container">
+            <div class="container-form">
+                <h3>Create the Account</h3>
+                <form (ngSubmit)="OnSign()">
+                    <div class="input-field">
+                    <input type="text" class="details" placeholder="Enter Username" name="name" [(ngModel)]="SignUpData.name" required>
+                    <input type="password" class="details" placeholder="Enter Password" name="password" [(ngModel)]="SignUpData.password" required>
+                    <input type="password" class="details" placeholder="ConfirmPassword" name="ConfirmPassword" [(ngModel)]="SignUpData.confirmpassword" required>
+                </div>
+                <div class="btn">
+                    <button class="btn-login">Sign Up</button>
+                </div>
+                </form>
+            </div>    
+        </div> 
+    </div>
+</div>

@@ -1,0 +1,28 @@
+.nav{
+    display: flex;
+    justify-content:space-between;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .nav_buttons ul{
+        display: flex;
+        list-style: none;
+        font-size: 20px;
+        padding-left: 0px;
+    }
+    .nav_margin{
+        margin-left: 800px;
+    }
+    .nav_buttons li{
+        padding-left: 40px;
+    }
+    .nav_buttons li a{
+        text-decoration: none;
+        color: rgb(93, 201, 244);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: smaller;
+        font-weight: bold;
+    }
+    
+    
+
+}
+

@@ -1,0 +1,14 @@
+this.jsondata.getjsondata(val).subscribe((data:any) => {
+      this.jdata = data;
+      console.log(this.jdata);
+      this.name = this.jdata.name;
+      this.open = this.jdata.day_open;
+      this.previous_close_price = this.jdata.previous_close_price;
+      this.day_high = this.jdata.day_high;
+      this.day_low = this.jdata.day_low;
+      this.price = this.jdata.price;
+      this.last_trade_time =this.jdata.last_trade_time;
+      this._week_high = this.jdata._week_high;
+      this._week_low = this.jdata._week_low;
+      this.ltp = (Math.round(this.price / 0.05) * 0.05);
+      this.ltp.toFixed(2);

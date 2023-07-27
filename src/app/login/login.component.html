@@ -1,0 +1,23 @@
+<div class="login">
+    <div class="container">
+        <div class="container-form">
+            <h3>Login to your Account</h3>
+            <form >
+                <div class="input-field">
+                <input type="text" class="details" placeholder="Enter Username" name="name" [(ngModel)]="loginData.name" required>
+                <input type="password" class="details" placeholder="Enter Password" name="password" [(ngModel)]="loginData.password" required>
+            </div>
+    
+            <div class="btn">
+                <button class="btn-login" (click)="OnSubmit()">Log In</button>
+            </div>
+
+            <div class="noacc">
+                <p>!! Don't have an account !! </p>
+                <a routerLink="/signup">Create</a>
+            </div>
+            
+            </form>
+        </div>    
+    </div>
+</div>

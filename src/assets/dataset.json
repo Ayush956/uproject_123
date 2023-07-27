@@ -1,0 +1,71 @@
+{
+    "meta": {
+        "requested": 3,
+        "returned": 3
+    },
+    "data": [
+        {
+            "ticker": "MSFT",
+            "name": "Microsoft Corporation",
+            "exchange_short": null,
+            "exchange_long": null,
+            "mic_code": "IEXG",
+            "currency": "USD",
+            "price": 337.4,
+            "day_high": 341.64,
+            "day_low": 335.69,
+            "day_open": 336.68,
+            "52_week_high": 349.84,
+            "52_week_low": 213.43,
+            "market_cap": null,
+            "previous_close_price": 332.44,
+            "previous_close_price_time": "2023-07-11T15:59:58.000000",
+            "day_change": 1.47,
+            "volume": 507141,
+            "is_extended_hours_price": false,
+            "last_trade_time": "2023-07-12T16:00:00.000000"
+        },
+        {
+            "ticker": "TSLA",
+            "name": "Tesla Inc",
+            "exchange_short": null,
+            "exchange_long": null,
+            "mic_code": "IEXG",
+            "currency": "USD",
+            "price": 271.99,
+            "day_high": 276.5,
+            "day_low": 271.5,
+            "day_open": 276.48,
+            "52_week_high": 314.67,
+            "52_week_low": 101.81,
+            "market_cap": null,
+            "previous_close_price": 269.83,
+            "previous_close_price_time": "2023-07-11T15:59:59.000000",
+            "day_change": 0.79,
+            "volume": 610789,
+            "is_extended_hours_price": false,
+            "last_trade_time": "2023-07-12T16:00:00.000000"
+        },
+        {
+            "ticker": "AAPL",
+            "name": "Apple Inc",
+            "exchange_short": null,
+            "exchange_long": null,
+            "mic_code": "IEXG",
+            "currency": "USD",
+            "price": 189.77,
+            "day_high": 191.68,
+            "day_low": 188.48,
+            "day_open": 189.72,
+            "52_week_high": 186.51,
+            "52_week_low": 124.17,
+            "market_cap": null,
+            "previous_close_price": 188.06,
+            "previous_close_price_time": "2023-07-11T16:00:00.000000",
+            "day_change": 0.9,
+            "volume": 881260,
+            "is_extended_hours_price": false,
+            "last_trade_time": "2023-07-12T16:00:00.000000"
+        }
+    ]
+}
