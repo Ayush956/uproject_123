@@ -92,7 +92,12 @@ export class HomeComponent {
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  constructor(private cookieService: CookieService,private login:LoginserviceService,private jsondata:JsonservicesService , private Symservice:SymbolsService,private share:SharedataService){
+  constructor(private cookieService: CookieService,
+    private login:LoginserviceService,
+    private jsondata:JsonservicesService , 
+    private Symservice:SymbolsService,
+    private share:SharedataService,
+    private snackbar:MatSnackBar){
   }
   
   //When a stock is opened or search getvalue function is called
@@ -224,6 +229,25 @@ export class HomeComponent {
       }
     });
   }
+  deleteCookie(){
+    const cookieValue = this.cookieService.get('Authorization');
+    // console.log(cookieValue)
+    // console.log(cookieValue.length)
+    if(cookieValue.length>0){
+      this.cookieService.delete('Authorization');
+      window.location.reload();
+      // this.router.navigate(['/home']);
+      this.snackbar.open('Logged Out Successfully','',{
+        duration: 3000
+      });
+    }
+    else{
+      this.snackbar.open('Please Login First','',{
+        duration: 3000
+      });
+    }
+
   }
+}
 
 
